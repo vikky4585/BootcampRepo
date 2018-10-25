@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Landing Page</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="custom.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+<div class="container-fluid">    
+        <div class="jumbotron">
+            <h1 style="text-align: center">Mission To Mars</h1>
+            <div class="text-center">
+                <a href="/scrape" class="btn btn-primary" >Scrape New Data</a>
+            </div>           
+        </div>
+        {% for data in scraped %}
+
+        <div class="row">
+                <div class="col-lg-12">
+                    <h3><strong>Latest Mars News</strong></h3>
+                    <h6><strong>{{data.news_title}}</strong></h6>
+                    <p>{{data.news_para}}</p>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-7">
+                <h3><strong>Featured Mars Image</strong></h3>
+                <img src="{{data.featured_image_url}}" alt="" style="width:85% ;height:85%">
+            </div>
+            <div class="col-lg-4">
+                <div class="panel panel-default">
+                    <h3><strong>Current Weather on Mars</strong>  </h3>
+                    <div class="panel-body">{{data.weather}}</div>
+                </div>
+                <h3><strong>Mars Fact</strong></h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                                <th>Description</th>
+                                <th>Value</th>
+                        </tr>
+ 
+                    </thead>
+                    <tbody>
+                            {% for k,v in data.mars_fact.items() %}
+                            <tr>
+                                    <td>{{k}}</td>
+                                    <td>{{v}}</td>
+                            </tr>
+
+                            {% endfor %}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <hr>
+        <h3>Mars Hemisphere</h3>
+        {%for x in data.mars_hemisphere%}
+        
+            {% if (loop.index0 == 1) %}
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <figure>
+                        <img src="{{x.img_url}}" alt="{{loop.index}}" style="width:75% ;height:75%">
+                        <figcaption style="text-align:center"><strong>{{x.title}}</strong></figcaption>
+                    </figure>
+                </div>
+            </div> 
+            {% else %}
+                        <div class="col-sm-6">
+                            <figure>
+                                 <img src="{{x.img_url}}" alt="{{loop.index}}" style="width:75% ;height:75%">
+                                 <figcaption style="text-align:center"><strong>{{x.title}}</strong></figcaption>
+
+                            </figure>
+                        </div>
+            {% endif %}
+        {%endfor%}
+
+        {% endfor %}
+
+</div>
+</body>

@@ -1,0 +1,7 @@
+3 observations on Pymaceuticals:
+
+1. Ramicane and Capumilon were the only effective drug to reduce tumor size over 45 days treatment.
+
+2. Survival rate drastcially falls for all drugs except Ramicane and Capumilon.
+
+3. Ketapril and Neftisol are the least effective drugs , their survival rate and sensitivity were poor.
