@@ -1,1 +1,0 @@
-worker: python QuoteBot_Solved.py

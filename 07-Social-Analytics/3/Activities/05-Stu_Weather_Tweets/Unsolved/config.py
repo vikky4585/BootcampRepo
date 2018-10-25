@@ -1,5 +1,0 @@
-consumer_key = "2zRBUDsxxbIZSEQ59Btows8B7"
-consumer_secret = "EBroIYTJUHe71hnKQV82BJUUirm9jarnecWq1ueCrvFslndQf2"
-access_token = "909611119-ZoTFz9mhZTyl4yD58Cn7MuwgSUFJ42ZL80hbniB1"
-access_token_secret = "UvIAK7R9z6Nmw6gsphOpr5WwdltLY42AzcfJ7AGNgyFZg"
-api_key = "25bc90a1196e6f153eece0bc0b0fc9eb"
