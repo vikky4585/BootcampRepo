@@ -40,7 +40,7 @@ function buildCharts(sample) {
     var pieVal = otuObj.map(d => d["sample_value"]);
 
     //pie
-    var d = [
+    var piedata = [
       {
         values: otuObj.map(d => d["sample_value"]),
         labels: otuObj.map(d => d["otu_id"]),
@@ -48,16 +48,26 @@ function buildCharts(sample) {
       }
     ]
 
-    Plotly.newPlot("pie",d)
+    Plotly.newPlot("pie",piedata);
+
+    var trace = {
+      x: otuObj.map(d => d["otu_id"]),
+      y: otuObj.map(d => d["sample_value"]),
+      mode: 'markers',
+      marker: {
+        size: otuObj.map(d => d["sample_value"]),
+        color: otuObj.map(d => d["otu_id"])
+      }
+
+    }
+    Plotly.newPlot("bubble",[trace]);
+
+
   }
   
   );
 
-    // @TODO: Build a Bubble Chart using the sample data
 
-    // @TODO: Build a Pie Chart
-    // HINT: You will need to use slice() to grab the top 10 sample_values,
-    // otu_ids, and labels (10 each).
 }
 
 function init() {
